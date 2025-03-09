@@ -1,0 +1,66 @@
+{% extends 'jobseeker/layouts/base.html' %} {% block content %} {% load static %}
+
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>Explore Our Services for a Smarter Job Market</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row g-5">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item item-cyan position-relative">
+              <i class="bi bi-journal icon"></i>
+              <h3><a href="{% url 'jobseeker:jobseeker_service_detail_1' %}" class="read-more stretched-link">Personalized Job Recommendations</a></h3>
+              <p>Get job suggestions based on your skills, experience, and preferences through AI-driven matching.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item item-orange position-relative">
+              <i class="bi bi-file-break icon"></i>
+              <h3><a href="{% url 'jobseeker:jobseeker_service_detail_2' %}" class="read-more stretched-link">Resume Parsing & Enhancement</a></h3>
+              <p>Upload your resume and let our system analyze and improve it for better visibility to employers.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+{#          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">#}
+{#            <div class="service-item item-teal position-relative">#}
+{#              <i class="bi bi-bounding-box-circles icon"></i>#}
+{#              <h3><a href="{% url 'jobseeker:jobseeker_service_detail_3' %}" class="read-more stretched-link">Real-time Application Tracking</a></h3>#}
+{#              <p>Monitor the status of your job applications and receive updates on interview invitations.</p>#}
+{#            </div>#}
+{#          </div><!-- End Service Item -->#}
+{##}
+{#          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">#}
+{#            <div class="service-item item-red position-relative">#}
+{#              <i class="bi bi-file-break icon"></i>#}
+{#              <h3><a href="{% url 'jobseeker:jobseeker_service_detail_4' %}" class="read-more stretched-link">Resume Parsing & OCR Technology</a></h3>#}
+{#              <p>Extracts applicant details from uploaded resumes automatically, reducing manual data entry for both job seekers and employers.</p>#}
+{#            </div>#}
+{#          </div><!-- End Service Item -->#}
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item item-indigo position-relative">
+              <i class="bi bi-check-square icon"></i>
+              <h3><a href="{% url 'jobseeker:jobseeker_service_detail_3' %}" class="read-more stretched-link">Verified Employer Listings</a></h3>
+              <p>Browse job postings from accredited and verified companies to ensure safe and legitimate job opportunities.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-item item-pink position-relative">
+              <i class="bi bi-graph-up-arrow icon"></i>
+              <h3><a href="{% url 'jobseeker:jobseeker_service_detail_4' %}" class="read-more stretched-link">Job Market Analytics & Trends</a></h3>
+              <p>Gain insights into industry demand, salary trends, and in-demand skills to guide your career choice</p>
+            </div>
+          </div><!-- End Service Item -->
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

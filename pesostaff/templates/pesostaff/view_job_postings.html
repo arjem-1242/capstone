@@ -1,0 +1,79 @@
+{% extends 'pesostaff/layouts/base.html' %} {% block content %} {% load static %}
+    <style>
+        /* General Styling for the Job Postings Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+
+<main class="main" id="main">
+    <div class="pagetitle">
+      <h1>Job Postings Overview</h1>
+        <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">Here you can manage accreditation requests, view job postings, and handle other administrative tasks.</li>
+        </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <div class="section dashboard">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <div class="row card">
+
+                    <div class="col-12">
+                        <div class="card-body">
+                            <br>
+                            <table class="table datatable">
+                                <thead>
+                                <tr>
+                                    <th>Employer</th>
+                                    <th>Position</th>
+                                    <th>Description</th>
+                                    <th>Salary</th>
+                                    <th>Date Posted</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for job in job_postings %}
+                                    <tr>
+                                        <td>{{ job.company.user.company_name }}</td> <!-- Display employer's name -->
+                                        <td>{{ job.position }}</td>
+                                        <td>{{ job.job_description|slice:":100" }}{% if job.job_description|length > 100 %}...{% endif %}</td>
+                                        <td>{{ job.salary }}</td>
+                                        <td>{{ job.date_posted }}</td>
+                                    </tr>
+                                {% empty %}
+                                    <tr>
+                                        <td colspan="5">No job postings available.</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}
+

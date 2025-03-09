@@ -1,0 +1,19 @@
+{% autoescape off %}
+    
+    Welcome to PESO Sync!
+    
+    Dear {{ name }}!!
+    We’re excited to have you on board.
+    
+    To complete your registration, please verify your email by clicking the link below:
+    
+    Confirmation Link: http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+    
+    Once verified, you’ll be able to access your account immediately.
+    If you did not sign up for PESO Sync, please ignore this email.
+    If you have any questions or need assistance, feel free to contact our support team.
+    
+    Best regards,
+    PESO Sync
+    
+ {% endautoescape %}

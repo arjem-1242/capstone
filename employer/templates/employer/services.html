@@ -1,0 +1,69 @@
+{% extends 'employer/layouts/base.html' %} {% block content %} {% load static %}
+
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>Explore Our Services for a Smarter Job Market</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row g-5">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item item-cyan position-relative">
+              <i class="bi bi-journal icon"></i>
+              <h3><a href="{% url 'employer:employer_service_detail_1' %}" class="read-more stretched-link">Job Posting & Management</a></h3>
+              <p>Effortlessly create, manage, and track job listings in one place, making recruitment faster and more efficient.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item item-orange position-relative">
+              <i class="bi bi-check-square icon"></i>
+              <h3><a href="{% url 'employer:employer_service_detail_2' %}" class="read-more stretched-link">Company Accreditation</a></h3>
+              <p>Get accredited by PESO through a simple online process, ensuring faster approval and increased job seeker trust.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+{#          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">#}
+{#            <div class="service-item item-teal position-relative">#}
+{#              <i class="bi bi-bounding-box-circles icon"></i>#}
+{#              <h3><a href="{% url 'employer:employer_service_detail_3' %}" class="read-more stretched-link">Smart Job Matching</a></h3>#}
+{#              <p>Utilizes AI-driven analytics to match job seekers with opportunities based on their skills, experience, and preferences.</p>#}
+{#            </div>#}
+{#          </div>#}
+            <!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item item-red position-relative">
+              <i class="bi bi-graph-up-arrow icon"></i>
+              <h3><a href="{% url 'employer:employer_service_detail_3' %}" class="read-more stretched-link"> Labor Market Analytics & Hiring Insights</a></h3>
+              <p>Access real-time data on job market trends, salary benchmarks, and workforce demand to make informed hiring decisions.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item item-indigo position-relative">
+              <i class="bi bi-buildings icon"></i>
+              <h3><a href="{% url 'employer:employer_service_detail_4' %}" class="read-more stretched-link">Employer Branding & Company Profile</a></h3>
+              <p>Showcase your company culture, benefits, and workplace environment to attract top talent</p>
+            </div>
+          </div>
+            <!-- End Service Item -->
+
+{#          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">#}
+{#            <div class="service-item item-pink position-relative">#}
+{#              <i class="bi bi-graph-up-arrow icon"></i>#}
+{#              <h3><a href="{% url 'employer:employer_service_detail_6' %}" class="read-more stretched-link">Labor Market Analytics & Insights</a></h3>#}
+{#              <p>Provides real-time employment trends, job demand analysis, and workforce data to help PESO and employers make informed decisions..</p>#}
+{#            </div>#}
+{#          </div>#}
+            <!-- End Service Item -->
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

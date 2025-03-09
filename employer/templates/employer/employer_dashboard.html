@@ -1,0 +1,420 @@
+{% extends 'employer/layouts/base.html' %} {% block content %} {% load static %}
+
+<main class="main">
+    <style>
+        #slideshow {
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+
+        #slideshow img {
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        #slideshow img.active {
+            opacity: 1;
+        }
+    </style>
+    <!-- Hero Section -->
+    <section id="hero" class="hero section accent-background">
+      <div class="carousel">
+        <div class="carousel-item active">
+          <img src="{% static 'employer/assets/img/hero-carousel/background.jpg' %}" alt="">
+          <div class="carousel-container">
+            <h2>Welcome to PESO Sync!</h2>
+            <p>This is your dashboard.</p>
+            <a href="{% url 'employer:create_accreditation_request' %}" class="btn-get-started">Get Accredited</a>
+          </div>
+        </div><!-- End Carousel Item -->
+      </div>
+    </section><!-- /Hero Section -->
+
+    <!-- Featured Services Section -->
+    <section id="featured-services" class="featured-services section light-background">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-journal icon"></i></div>
+              <h4><a href="" class="stretched-link">Post and Manage Job Listings</a></h4>
+              <p>Create job postings, update vacancies, and manage applications.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-pin-angle icon"></i></div>
+              <h4><a href="" class="stretched-link">Track Applicant Progress</a></h4>
+              <p>Review, filter, and communicate with candidates directly.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-check-square icon"></i></div>
+              <h4><a href="" class="stretched-link">Company Accreditation Status</a></h4>
+              <p>Check and maintain compliance with PESO regulations.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
+              <h4><a href="" class="stretched-link">Access Hiring Analytics</a></h4>
+              <p>Get insights on applicant trends, job demand, and recruitment performance.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Featured Services Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let images = document.querySelectorAll("#slideshow img");
+                let currentIndex = 0;
+
+                function changeImage() {
+                    images[currentIndex].classList.remove("active");
+                    currentIndex = (currentIndex + 1) % images.length;
+                    images[currentIndex].classList.add("active");
+                }
+
+                setInterval(changeImage, 10000); // Change image every 10 seconds
+            });
+        </script>
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About Us</h2>
+        <p>Empowering Job Seekers, Connecting Employers, and Building Stronger Communities</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+          <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
+                <div id="slideshow">
+                    <img src="{% static 'jobseeker/assets/img/about_1.jpg' %}" class="img-fluid" alt="">
+                    <img src="{% static 'jobseeker/assets/img/about_2.jpg' %}" class="img-fluid" alt="">
+                    <img src="{% static 'jobseeker/assets/img/about_3.jpg' %}" class="img-fluid" alt="">
+                    <img src="{% static 'jobseeker/assets/img/about_4.jpg' %}" class="img-fluid" alt="">
+                    <img src="{% static 'jobseeker/assets/img/about_5.jpg' %}" class="img-fluid" alt="">
+                </div>
+          </div>
+          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
+            <h3>The Public Employment Service Office (PESO) San Pedro</h3>
+            <p class="fst-italic">
+              is a government initiative dedicated to connecting job seekers with employers, providing employment facilitation, career guidance,
+                and job-matching services. As a key player in workforce development, PESO San Pedro organizes job fairs, skills training,
+                and livelihood programs to enhance employability and support local businesses.
+            </p>
+            <ul>
+              <li><i class="bi bi-check2-all"></i> <span>Helps individuals access job opportunities through employer connections, career guidance, and skills development programs.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Ensures companies find qualified talent through job matching and recruitment programs.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Committed to economic growth through workforce development and job creation.</span></li>
+            </ul>
+            <p>
+              PESO San Pedro serves as a vital resource for both job seekers and employers in the city by providing employment opportunities, career guidance, and skills development programs.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="why-us" class="why-us section">
+
+      <div class="container">
+
+        <div class="row no-gutters">
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="100">
+            <span>01</span>
+            <h4>Job Placement Services</h4>
+            <p>Helping job seekers connect with potential employers through job matching and referrals.</p>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="200">
+            <span>02</span>
+            <h4>Career Guidance & Counseling</h4>
+            <p>Providing career advice, resume-building support, and interview preparation to enhance employability.</p>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="300">
+            <span>03</span>
+            <h4>Job Fairs</h4>
+            <p>Organizing job fairs and recruitment events to facilitate direct hiring opportunities.</p>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="400">
+            <span>04</span>
+            <h4>Labor Market Information</h4>
+            <p>Offering up-to-date insights on employment trends, in-demand jobs, and salary expectations.</p>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="400">
+            <span>05</span>
+            <h4>Company Accreditation</h4>
+            <p> Ensuring that employers comply with PESO regulations for legitimate and fair hiring practices.</p>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="600">
+            <span>06</span>
+            <h4>Special Program for Employment of Students (SPES)</h4>
+            <p>Providing work opportunities for students to help them gain experience and financial assistance for their education.</p>
+          </div><!-- End Card Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Why Us Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>Explore Our Services for a Smarter Job Market</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row g-5">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item item-cyan position-relative">
+              <i class="bi bi-journal icon"></i>
+              <h3><a href="{% url 'employer:employer_service_detail_1' %}" class="read-more stretched-link">Job Posting & Management</a></h3>
+              <p>Effortlessly create, manage, and track job listings in one place, making recruitment faster and more efficient.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item item-orange position-relative">
+              <i class="bi bi-check-square icon"></i>
+              <h3><a href="{% url 'employer:employer_service_detail_2' %}" class="read-more stretched-link">Company Accreditation</a></h3>
+              <p>Get accredited by PESO through a simple online process, ensuring faster approval and increased job seeker trust.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+{#          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">#}
+{#            <div class="service-item item-teal position-relative">#}
+{#              <i class="bi bi-bounding-box-circles icon"></i>#}
+{#              <h3><a href="{% url 'employer:employer_service_detail_3' %}" class="read-more stretched-link">Smart Job Matching</a></h3>#}
+{#              <p>Utilizes AI-driven analytics to match job seekers with opportunities based on their skills, experience, and preferences.</p>#}
+{#            </div>#}
+{#          </div>#}
+            <!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item item-red position-relative">
+              <i class="bi bi-graph-up-arrow icon"></i>
+              <h3><a href="{% url 'employer:employer_service_detail_3' %}" class="read-more stretched-link"> Labor Market Analytics & Hiring Insights</a></h3>
+              <p>Access real-time data on job market trends, salary benchmarks, and workforce demand to make informed hiring decisions.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item item-indigo position-relative">
+              <i class="bi bi-buildings icon"></i>
+              <h3><a href="{% url 'employer:employer_service_detail_4' %}" class="read-more stretched-link">Employer Branding & Company Profile</a></h3>
+              <p>Showcase your company culture, benefits, and workplace environment to attract top talent</p>
+            </div>
+          </div>
+            <!-- End Service Item -->
+
+{#          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">#}
+{#            <div class="service-item item-pink position-relative">#}
+{#              <i class="bi bi-graph-up-arrow icon"></i>#}
+{#              <h3><a href="{% url 'employer:employer_service_detail_6' %}" class="read-more stretched-link">Labor Market Analytics & Insights</a></h3>#}
+{#              <p>Provides real-time employment trends, job demand analysis, and workforce data to help PESO and employers make informed decisions..</p>#}
+{#            </div>#}
+{#          </div>#}
+            <!-- End Service Item -->
+        </div>
+      </div>
+    </section><!-- /Services Section -->
+
+    <!-- Team Section -->
+
+{#    <section id="team" class="team section light-background">#}
+{##}
+{#      <!-- Section Title -->#}
+{#      <div class="container section-title" data-aos="fade-up">#}
+{#        <h2>Team</h2>#}
+{#        <p>Meet the Team Behind PESO San Pedro</p>#}
+{#      </div><!-- End Section Title -->#}
+{##}
+{#      <div class="container">#}
+{##}
+{#        <div class="row">#}
+{##}
+{#          <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">#}
+{#            <div class="member">#}
+{#              <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">#}
+{#              <div class="member-content">#}
+{#                <h4>Walter White</h4>#}
+{#                <span>Web Development</span>#}
+{#                <p>#}
+{#                  Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut#}
+{#                </p>#}
+{#                <div class="social">#}
+{#                  <a href=""><i class="bi bi-twitter-x"></i></a>#}
+{#                  <a href=""><i class="bi bi-facebook"></i></a>#}
+{#                  <a href=""><i class="bi bi-instagram"></i></a>#}
+{#                  <a href=""><i class="bi bi-linkedin"></i></a>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div><!-- End Team Member -->#}
+{##}
+{#          <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">#}
+{#            <div class="member">#}
+{#              <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">#}
+{#              <div class="member-content">#}
+{#                <h4>Sarah Jhinson</h4>#}
+{#                <span>Marketing</span>#}
+{#                <p>#}
+{#                  Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus#}
+{#                </p>#}
+{#                <div class="social">#}
+{#                  <a href=""><i class="bi bi-twitter-x"></i></a>#}
+{#                  <a href=""><i class="bi bi-facebook"></i></a>#}
+{#                  <a href=""><i class="bi bi-instagram"></i></a>#}
+{#                  <a href=""><i class="bi bi-linkedin"></i></a>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div><!-- End Team Member -->#}
+{##}
+{#          <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">#}
+{#            <div class="member">#}
+{#              <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">#}
+{#              <div class="member-content">#}
+{#                <h4>William Anderson</h4>#}
+{#                <span>Content</span>#}
+{#                <p>#}
+{#                  Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara#}
+{#                </p>#}
+{#                <div class="social">#}
+{#                  <a href=""><i class="bi bi-twitter-x"></i></a>#}
+{#                  <a href=""><i class="bi bi-facebook"></i></a>#}
+{#                  <a href=""><i class="bi bi-instagram"></i></a>#}
+{#                  <a href=""><i class="bi bi-linkedin"></i></a>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div><!-- End Team Member -->#}
+{##}
+{#        </div>#}
+{##}
+{#      </div>#}
+{##}
+{#    </section>#}
+
+    <!-- /Team Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact Us</h2>
+        <p>Have questions or need assistance? Our team is here to help!</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-5">
+
+            <div class="info-wrap">
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <div>
+                  <h3>Address</h3>
+                  <p>Ground Floor, New City Hall, Brgy. Poblacion, San Pedro, Philippines</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                <i class="bi bi-telephone flex-shrink-0"></i>
+                <div>
+                  <h3>Call Us</h3>
+                  <p>(02) 8808-2020 loc 107</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                <i class="bi bi-envelope flex-shrink-0"></i>
+                <div>
+                  <h3>Email Us</h3>
+                  <p>peso.sanpedro@gmail.com</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <iframe src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=San Pedro City Hall&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <label for="name-field" class="pb-2">Your Name</label>
+                  <input type="text" name="name" id="name-field" class="form-control" required="">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="email-field" class="pb-2">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email-field" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="subject-field" class="pb-2">Subject</label>
+                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="message-field" class="pb-2">Message</label>
+                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                  <button type="submit">Send Message</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'employer/layouts/base.html' %} {% block content %} {% load static %}
+    <style>
+        form{
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #5cb874;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+
+<main class="main" id="main">
+    <section class="about section">
+        <!-- Section Title -->
+          <div class="container section-title" data-aos="fade-up">
+            <h2>Accreditation Request Overview</h2>
+            <p>Here you can see status of your accreditation request.</p>
+          </div><!-- End Section Title -->
+
+        <div class="container" data-aos="fade-up">
+            {% if messages %}
+                <div class="alert">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if accreditation_requests %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Company Name</th>
+                            <th>Status</th>
+                            <th>Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for request in accreditation_requests %}
+                            <tr>
+                                <td>{{ request.company }}</td>
+                                <td>{{ request.status }}</td>
+                                <td>{{ request.comments }}</td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="3">No accreditation requests found.</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No accreditation requests available.</p>
+            {% endif %}
+
+            <!-- Back Button -->
+            <hr>
+            <div>
+                <a href="{% url 'employer_dashboard' %}" class="btn btn-outline-dark">Back to Dashboard</a>
+                <a href="{% url 'employer:create_accreditation_request' %}" class="btn btn-outline-success">Get Accredited</a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+{% endblock %}

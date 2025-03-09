@@ -1,0 +1,129 @@
+{% extends 'jobseeker/layouts/base.html' %} {% block content %} {% load static %}
+
+    <style>
+        #slideshow {
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+
+        #slideshow img {
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        #slideshow img.active {
+            opacity: 1;
+        }
+    </style>
+
+
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About Us</h2>
+        <p>Empowering Job Seekers, Connecting Employers, and Building Stronger Communities</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+          <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
+                <div id="slideshow">
+                    <img src="{% static 'jobseeker/assets/img/about_1.jpg' %}" class="img-fluid" alt="">
+                    <img src="{% static 'jobseeker/assets/img/about_2.jpg' %}" class="img-fluid" alt="">
+                    <img src="{% static 'jobseeker/assets/img/about_3.jpg' %}" class="img-fluid" alt="">
+                    <img src="{% static 'jobseeker/assets/img/about_4.jpg' %}" class="img-fluid" alt="">
+                    <img src="{% static 'jobseeker/assets/img/about_5.jpg' %}" class="img-fluid" alt="">
+                </div>
+          </div>
+          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
+            <h3>The Public Employment Service Office (PESO) San Pedro</h3>
+            <p class="fst-italic">
+              is a government initiative dedicated to connecting job seekers with employers, providing employment facilitation, career guidance,
+                and job-matching services. As a key player in workforce development, PESO San Pedro organizes job fairs, skills training,
+                and livelihood programs to enhance employability and support local businesses.
+            </p>
+            <ul>
+              <li><i class="bi bi-check2-all"></i> <span>Helps individuals access job opportunities through employer connections, career guidance, and skills development programs.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Ensures companies find qualified talent through job matching and recruitment programs.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Committed to economic growth through workforce development and job creation.</span></li>
+            </ul>
+            <p>
+              PESO San Pedro serves as a vital resource for both job seekers and employers in the city by providing employment opportunities, career guidance, and skills development programs.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="why-us" class="why-us section">
+
+      <div class="container">
+
+        <div class="row no-gutters">
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="100">
+            <span>01</span>
+            <h4>Job Placement Services</h4>
+            <p>Helping job seekers connect with potential employers through job matching and referrals.</p>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="200">
+            <span>02</span>
+            <h4>Career Guidance & Counseling</h4>
+            <p>Providing career advice, resume-building support, and interview preparation to enhance employability.</p>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="300">
+            <span>03</span>
+            <h4>Job Fairs</h4>
+            <p>Organizing job fairs and recruitment events to facilitate direct hiring opportunities.</p>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="400">
+            <span>04</span>
+            <h4>Labor Market Information</h4>
+            <p>Offering up-to-date insights on employment trends, in-demand jobs, and salary expectations.</p>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="400">
+            <span>05</span>
+            <h4>Company Accreditation</h4>
+            <p> Ensuring that employers comply with PESO regulations for legitimate and fair hiring practices.</p>
+          </div><!-- End Card Item -->
+
+          <div class="col-lg-4 col-md-6 card" data-aos="fade-up" data-aos-delay="600">
+            <span>06</span>
+            <h4>Special Program for Employment of Students (SPES)</h4>
+            <p>Providing work opportunities for students to help them gain experience and financial assistance for their education.</p>
+          </div><!-- End Card Item -->
+
+        </div>
+
+      </div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    let images = document.querySelectorAll("#slideshow img");
+                    let currentIndex = 0;
+
+                    function changeImage() {
+                        images[currentIndex].classList.remove("active");
+                        currentIndex = (currentIndex + 1) % images.length;
+                        images[currentIndex].classList.add("active");
+                    }
+
+                    setInterval(changeImage, 10000); // Change image every 10 seconds
+                });
+            </script>
+    </section>
+
+
+
+{% endblock %}

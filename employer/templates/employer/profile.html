@@ -1,0 +1,24 @@
+{% extends 'employer/layouts/base.html' %} {% block content %} {% load static %}
+
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Company Profile</h2>
+        <p>Empowering Job Seekers, Connecting Employers, and Building Stronger Communities</p>
+      </div><!-- End Section Title -->
+
+      <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ employer.company_name }}</h5>
+                <p class="card-text"><strong>Email:</strong> {{ employer.email }}</p>
+                <p class="card-text"><strong>User Type:</strong> {{ employer.user_type }}</p>
+            </div>
+        </div>
+          <a href="{% url 'employer:change_password_view' %}" class="btn btn-secondary">Change Password</a>
+    </div>
+
+    </section>
+
+{% endblock %}

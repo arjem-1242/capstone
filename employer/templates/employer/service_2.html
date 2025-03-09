@@ -1,0 +1,70 @@
+{% extends 'employer/layouts/base.html' %} {% block content %} {% load static %}
+
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Service Detail</h2>
+{#        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>#}
+      </div><!-- End Section Title -->
+
+    <section id="service-details" class="service-details section">
+
+      <div class="container">
+
+        <div class="row gy-5">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="service-box">
+              <h4>Services List</h4>
+              <div class="services-list">
+                <a href="{% url 'employer:employer_service_detail_1' %}"><i class="bi bi-arrow-right-circle"></i><span>Job Posting & Management</span></a>
+                <a href="{% url 'employer:employer_service_detail_2' %}" class="active"><i class="bi bi-arrow-right-circle"></i><span>Company Accreditation</span></a>
+                <a href="{% url 'employer:employer_service_detail_3' %}"><i class="bi bi-arrow-right-circle"></i><span>Labor Market Analytics & Hiring Insights</span></a>
+                <a href="{% url 'employer:employer_service_detail_4' %}"><i class="bi bi-arrow-right-circle"></i><span>Employer Branding & Company Profile</span></a>
+{#                <a href="{% url 'employer:employer_service_detail_5' %}"><i class="bi bi-arrow-right-circle"></i><span>Event & Job Fair Management</span></a>#}
+{#                <a href="{% url 'employer:employer_service_detail_6' %}"><i class="bi bi-arrow-right-circle"></i><span>Labor Market Analytics & Insights</span></a>#}
+              </div>
+            </div><!-- End Services List -->
+
+{#            <div class="service-box">#}
+{#              <h4>Download Catalog</h4>#}
+{#              <div class="download-catalog">#}
+{#                <a href="#"><i class="bi bi-filetype-pdf"></i><span>Catalog PDF</span></a>#}
+{#                <a href="#"><i class="bi bi-file-earmark-word"></i><span>Catalog DOC</span></a>#}
+{#              </div>#}
+{#            </div><!-- End Services List -->#}
+
+            <div class="help-box d-flex flex-column justify-content-center align-items-center">
+              <i class="bi bi-headset help-icon"></i>
+              <h4>Have a Question?</h4>
+              <p class="d-flex align-items-center mt-2 mb-0"><i class="bi bi-telephone me-2"></i> <span>(02) 8808-2020 loc 107</span></p>
+              <p class="d-flex align-items-center mt-1 mb-0"><i class="bi bi-envelope me-2"></i> <span>peso.sanpedro@gmail.com</span></p>
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
+            <img src="{% static 'employer/assets/img/services.jpg' %}" alt="" class="img-fluid services-img">
+            <h3>Easy PESO Accreditation Process</h3>
+            <p>
+              Employers begin the accreditation process by filling out an online form and uploading the required documents, with the ability to track their accreditation status in real-time through a dedicated dashboard. To ensure continuous compliance, they receive renewal notifications, helping them maintain an active accreditation. Once accredited, employers gain the ability to create and manage job posts seamlessly, streamlining their hiring process.
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> <span>Faster accreditation with reduced paperwork and processing time.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Builds trust with job seekers through the PESO-verified badge.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Ensures compliance with PESO regulations and timely renewals.</span></li>
+            </ul>
+            <p>
+              The easy PESO accreditation process simplifies and accelerates employer verification, reducing paperwork and processing time while ensuring compliance with PESO regulations. By providing a seamless online application, employers can quickly submit the necessary documents and track their accreditation status in real-time through a centralized dashboard. Automated renewal notifications further enhance the experience, helping businesses maintain an active accreditation without the risk of lapses or delays. This streamlined approach minimizes administrative burdens, allowing employers to focus on recruitment rather than complex accreditation procedures.
+            </p>
+            <p>
+              Beyond efficiency, PESO accreditation builds trust and credibility among job seekers by displaying a PESO-verified badge on job listings. This verification reassures applicants that the employer meets government standards, encouraging more qualified candidates to apply. Additionally, compliance with PESO regulations ensures that job postings align with labor guidelines, fostering a fair and transparent hiring process. With a faster, more reliable accreditation system, businesses can confidently create job posts and attract top talent while maintaining regulatory integrity.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'jobseeker/layouts/base.html' %} {% block content %} {% load static %}
+
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Service Detail</h2>
+{#        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>#}
+      </div><!-- End Section Title -->
+
+    <section id="service-details" class="service-details section">
+
+      <div class="container">
+
+        <div class="row gy-5">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="service-box">
+              <h4>Services List</h4>
+              <div class="services-list">
+                <a href="{% url 'jobseeker:jobseeker_service_detail_1' %}"><i class="bi bi-arrow-right-circle"></i><span>Personalized Job Recommendations</span></a>
+                <a href="{% url 'jobseeker:jobseeker_service_detail_2' %}"><i class="bi bi-arrow-right-circle"></i><span>Resume Parsing & Enhancement</span></a>
+                <a href="{% url 'jobseeker:jobseeker_service_detail_3' %}" class="active"><i class="bi bi-arrow-right-circle"></i><span>Verified Employer Listings</span></a>
+                <a href="{% url 'jobseeker:jobseeker_service_detail_4' %}"><i class="bi bi-arrow-right-circle"></i><span>Job Market Analytics & Trends</span></a>
+{#                <a href="{% url 'jobseeker:jobseeker_service_detail_5' %}"><i class="bi bi-arrow-right-circle"></i><span>Event & Job Fair Management</span></a>#}
+{#                <a href="{% url 'jobseeker:jobseeker_service_detail_6' %}"><i class="bi bi-arrow-right-circle"></i><span>Labor Market Analytics & Insights</span></a>#}
+              </div>
+            </div><!-- End Services List -->
+
+{#            <div class="service-box">#}
+{#              <h4>Download Catalog</h4>#}
+{#              <div class="download-catalog">#}
+{#                <a href="#"><i class="bi bi-filetype-pdf"></i><span>Catalog PDF</span></a>#}
+{#                <a href="#"><i class="bi bi-file-earmark-word"></i><span>Catalog DOC</span></a>#}
+{#              </div>#}
+{#            </div><!-- End Services List -->#}
+
+            <div class="help-box d-flex flex-column justify-content-center align-items-center">
+              <i class="bi bi-headset help-icon"></i>
+              <h4>Have a Question?</h4>
+              <p class="d-flex align-items-center mt-2 mb-0"><i class="bi bi-telephone me-2"></i> <span>(02) 8808-2020 loc 107</span></p>
+              <p class="d-flex align-items-center mt-1 mb-0"><i class="bi bi-envelope me-2"></i> <span>peso.sanpedro@gmail.com</span></p>
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
+            <img src="{% static 'jobseeker/assets/img/services.jpg' %}" alt="" class="img-fluid services-img">
+            <h3>Verified Employer Listings</h3>
+            <p>
+              The platform features only accredited companies that have undergone a thorough verification process to ensure legitimacy and compliance with labor regulations. It also provides detailed company profiles, including job openings, company culture, employee reviews, and benefits, giving job seekers valuable insights to make informed career decisions.
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> <span>Protects job seekers from scams and illegal job postings.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Helps applicants find trusted employers with secure career opportunities.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Provides transparency on company credibility and hiring practices.</span></li>
+            </ul>
+            <p>
+              Verified employer listings create a safer and more transparent job search experience by ensuring that only accredited companies are featured. Through a rigorous verification process, the platform guarantees that all employers comply with labor regulations, protecting job seekers from scams and fraudulent job postings. This added layer of security allows applicants to search for jobs with confidence, knowing that they are engaging with legitimate organizations offering secure career opportunities. Additionally, by providing detailed company profiles that showcase job openings, workplace culture, employee reviews, and benefits, job seekers gain valuable insights to help them make informed decisions about their next career move.
+            </p>
+            <p>
+              Beyond security, verified listings enhance trust and credibility between employers and potential hires. Transparency in hiring practices allows job seekers to assess company reputations, compare opportunities, and choose employers that align with their values and professional goals. Employers also benefit by attracting high-quality candidates who are more likely to apply when they feel assured of the company’s legitimacy and commitment to fair employment practices. By fostering a trusted job marketplace, verified employer listings contribute to a more efficient, ethical, and successful hiring process for both job seekers and organizations.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+{% endblock %}

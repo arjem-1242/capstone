@@ -1,0 +1,70 @@
+{% extends 'employer/layouts/base.html' %} {% block content %} {% load static %}
+
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Service Detail</h2>
+{#        <p>Seamless Job Posting & Management</p>#}
+      </div><!-- End Section Title -->
+
+    <section id="service-details" class="service-details section">
+
+      <div class="container">
+
+        <div class="row gy-5">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="service-box">
+              <h4>Services List</h4>
+              <div class="services-list">
+                <a href="{% url 'employer:employer_service_detail_1' %}" class="active"><i class="bi bi-arrow-right-circle"></i><span>Job Posting & Management</span></a>
+                <a href="{% url 'employer:employer_service_detail_2' %}"><i class="bi bi-arrow-right-circle"></i><span>Company Accreditation</span></a>
+                <a href="{% url 'employer:employer_service_detail_3' %}"><i class="bi bi-arrow-right-circle"></i><span>Labor Market Analytics & Hiring Insights</span></a>
+                <a href="{% url 'employer:employer_service_detail_4' %}"><i class="bi bi-arrow-right-circle"></i><span>Employer Branding & Company Profile</span></a>
+{#                <a href="{% url 'employer:employer_service_detail_5' %}"><i class="bi bi-arrow-right-circle"></i><span>Event & Job Fair Management</span></a>#}
+{#                <a href="{% url 'employer:employer_service_detail_6' %}"><i class="bi bi-arrow-right-circle"></i><span>Labor Market Analytics & Insights</span></a>#}
+              </div>
+            </div><!-- End Services List -->
+
+{#            <div class="service-box">#}
+{#              <h4>Download Catalog</h4>#}
+{#              <div class="download-catalog">#}
+{#                <a href="#"><i class="bi bi-filetype-pdf"></i><span>Catalog PDF</span></a>#}
+{#                <a href="#"><i class="bi bi-file-earmark-word"></i><span>Catalog DOC</span></a>#}
+{#              </div>#}
+{#            </div><!-- End Services List -->#}
+
+            <div class="help-box d-flex flex-column justify-content-center align-items-center">
+              <i class="bi bi-headset help-icon"></i>
+              <h4>Have a Question?</h4>
+              <p class="d-flex align-items-center mt-2 mb-0"><i class="bi bi-telephone me-2"></i> <span>(02) 8808-2020 loc 107</span></p>
+              <p class="d-flex align-items-center mt-1 mb-0"><i class="bi bi-envelope me-2"></i> <span>peso.sanpedro@gmail.com</span></p>
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
+            <img src="{% static 'employer/assets/img/services.jpg' %}" alt="" class="img-fluid services-img">
+            <h3>Seamless Job Posting & Management</h3>
+            <p>
+              Employers can efficiently create job posts by entering role details, qualifications, and requirements, while a centralized dashboard allows them to easily edit, update, or remove listings. Additionally, an auto-refresh feature ensures that job posts remain active and visible without the need for manual updates.
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> <span>Saves time and effort by streamlining job postings and applicant tracking.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Maximizes job visibility through auto-refresh and featured listings.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Improves applicant management with easy sorting, filtering, and tracking.</span></li>
+            </ul>
+            <p>
+              This seamless job posting and management system empowers employers to streamline their hiring process with ease. By providing a centralized dashboard, it allows for quick creation, editing, and removal of job listings while ensuring that postings remain active and visible through an auto-refresh feature. This eliminates the need for constant manual updates, allowing recruiters to focus on evaluating candidates rather than managing job posts. Additionally, advanced applicant tracking tools, such as sorting and filtering, make it easier to organize and assess potential hires efficiently.
+            </p>
+            <p>
+              Beyond saving time and effort, this system also enhances job visibility through auto-refresh and featured listings, ensuring positions reach a wider audience of qualified candidates. Employers can optimize their recruitment strategy by maintaining up-to-date job postings and leveraging intuitive tools for better applicant management. With an automated and user-friendly approach, this solution simplifies the hiring process, ultimately leading to more effective and successful talent acquisition.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+{% endblock %}

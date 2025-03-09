@@ -1,0 +1,70 @@
+{% extends 'jobseeker/layouts/base.html' %} {% block content %} {% load static %}
+
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Service Detail</h2>
+{#        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>#}
+      </div><!-- End Section Title -->
+
+    <section id="service-details" class="service-details section">
+
+      <div class="container">
+
+        <div class="row gy-5">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="service-box">
+              <h4>Services List</h4>
+              <div class="services-list">
+                <a href="{% url 'jobseeker:jobseeker_service_detail_1' %}" class="active"><i class="bi bi-arrow-right-circle"></i><span>Personalized Job Recommendations</span></a>
+                <a href="{% url 'jobseeker:jobseeker_service_detail_2' %}"><i class="bi bi-arrow-right-circle"></i><span>Resume Parsing & Enhancement</span></a>
+                <a href="{% url 'jobseeker:jobseeker_service_detail_3' %}"><i class="bi bi-arrow-right-circle"></i><span>Verified Employer Listings</span></a>
+                <a href="{% url 'jobseeker:jobseeker_service_detail_4' %}"><i class="bi bi-arrow-right-circle"></i><span>Job Market Analytics & Trends</span></a>
+{#                <a href="{% url 'jobseeker:jobseeker_service_detail_5' %}"><i class="bi bi-arrow-right-circle"></i><span>Event & Job Fair Management</span></a>#}
+{#                <a href="{% url 'jobseeker:jobseeker_service_detail_6' %}"><i class="bi bi-arrow-right-circle"></i><span>Labor Market Analytics & Insights</span></a>#}
+              </div>
+            </div><!-- End Services List -->
+
+{#            <div class="service-box">#}
+{#              <h4>Download Catalog</h4>#}
+{#              <div class="download-catalog">#}
+{#                <a href="#"><i class="bi bi-filetype-pdf"></i><span>Catalog PDF</span></a>#}
+{#                <a href="#"><i class="bi bi-file-earmark-word"></i><span>Catalog DOC</span></a>#}
+{#              </div>#}
+{#            </div><!-- End Services List -->#}
+
+            <div class="help-box d-flex flex-column justify-content-center align-items-center">
+              <i class="bi bi-headset help-icon"></i>
+              <h4>Have a Question?</h4>
+              <p class="d-flex align-items-center mt-2 mb-0"><i class="bi bi-telephone me-2"></i> <span>(02) 8808-2020 loc 107</span></p>
+              <p class="d-flex align-items-center mt-1 mb-0"><i class="bi bi-envelope me-2"></i> <span>peso.sanpedro@gmail.com</span></p>
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
+            <img src="{% static 'jobseeker/assets/img/services.jpg' %}" alt="" class="img-fluid services-img">
+            <h3>Personalized Job Recommendations</h3>
+            <p>
+              Leveraging AI-driven analytics, the system matches job seekers with the most relevant job openings based on their skills, experience, education, and preferences. By analyzing past applications, browsing history, and job market trends, it provides highly accurate recommendations, helping candidates find opportunities that align with their qualifications and career goals.
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> <span>Saves time by filtering jobs that align with qualifications and career goals.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Increases chances of getting hired by recommending the most suitable positions.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Provides real-time updates on newly available jobs.</span></li>
+            </ul>
+            <p>
+              Personalized job recommendations revolutionize the job search process by leveraging AI-driven analytics to connect job seekers with the most relevant opportunities. By analyzing skills, experience, education, and preferences, the system filters through countless job listings to present only those that truly align with a candidate’s qualifications and career aspirations. This targeted approach not only saves time but also enhances the job search experience by reducing the frustration of sifting through irrelevant listings. Additionally, by considering past applications, browsing history, and market trends, the system refines its recommendations, making them increasingly accurate over time.
+            </p>
+            <p>
+              Beyond efficiency, personalized recommendations significantly improve a job seeker's chances of securing the right position. By staying updated with real-time alerts on new openings, candidates can apply faster and stay ahead of the competition. This proactive job-matching process ensures that job seekers are always informed about the best opportunities in their field, increasing the likelihood of finding roles that offer long-term growth and satisfaction. With AI-powered insights guiding their search, job seekers can make smarter career decisions and connect with employers who value their skills and experience.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+{% endblock %}

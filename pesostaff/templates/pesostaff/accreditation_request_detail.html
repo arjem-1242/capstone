@@ -1,0 +1,102 @@
+{% extends 'pesostaff/layouts/base.html' %} {% block content %} {% load static %}
+    <style>
+        p {
+            font-size: 16px;
+            color: #333;
+            margin: 10px 0;
+        }
+        strong {
+            color: #007bff;
+        }
+        form {
+            max-width: 500px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            resize: none;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+        }
+    </style>
+<main class="main" id="main">
+    <div class="pagetitle">
+      <h1>Accreditation Request Overview</h1>
+        <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">Here you can manage accreditation requests, view job postings, and handle other administrative tasks.</li>
+        </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+
+            <div class="col--12">
+                <div class="card">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Accreditation Request Details for {{ request.company }}</h5>
+                        <hr>
+                        <h5 class="card-title">Company Information:</h5>
+                        <p class="card-body"><strong class="card-title">Company Name:</strong> {{ request.company }}</p>
+                        <p class="card-body"><strong class="card-title">Company Type:</strong> {{ request.company_type }}</p>
+                        <p class="card-body"><strong class="card-title">Request Date:</strong> {{ request.request_date }}</p>
+                        <p class="card-body"><strong class="card-title">Status:</strong>
+                            <span class="status-{% if request.status == 'Pending' %}pending{% elif request.status == 'Approved' %}approved{% elif request.status == 'Rejected' %}rejected{% endif %}">
+                                {{ request.status }}
+                            </span>
+                        </p>
+                        <h3 class="card-title">Required Documents:</h3>
+                        {% if documents %}
+                            {% for label, document in documents.items %}
+                                {% if document %}
+                                        <strong class="card-title card-body">{{ label }}:</strong>
+                                        <a class="card-body" href="{{ document.url }}" target="_blank">View Document</a>
+                                {% else %}
+                                    <p>No documents uploaded.</p>
+                                {% endif %}
+                            {% endfor %}
+                            <hr>
+                        {% else %}
+                            <p class="card-body">No documents uploaded.</p>
+                        {% endif %}
+
+                        <h3 class="card-title">Approval Information:</h3>
+                        {% if approval %}
+                            <p class="card-body"><strong class="card-title">Remarks:</strong> {{ approval.comments }}</p>
+                        {% else %}
+                            <p>This request has not been reviewed yet.</p>
+                        {% endif %}
+                        <hr>
+                        <h2 class="card-title">Actions:</h2>
+                        <div class="actions-form">
+                            <form method="POST" action="{% url 'pesostaff:accreditation_request_detail' id=request.id %}">
+                                {% csrf_token %}
+                                <textarea name="comments" placeholder="Add comments..."></textarea>
+                                <div class="card-body">
+                                    <button type="submit" class="btn btn-outline-success" name="approve" value="approve">Approve</button>
+                                    <button type="submit" class="btn btn-outline-danger" name="reject" value="reject">Reject</button>
+                                    <a class="btn btn-dark" href="{% url 'pesostaff:requests_view' %}">Back</a>
+                                </div>
+                            </form>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+{%endblock %}

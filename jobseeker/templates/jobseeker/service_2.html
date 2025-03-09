@@ -1,0 +1,70 @@
+{% extends 'jobseeker/layouts/base.html' %} {% block content %} {% load static %}
+
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Service Detail</h2>
+{#        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>#}
+      </div><!-- End Section Title -->
+
+    <section id="service-details" class="service-details section">
+
+      <div class="container">
+
+        <div class="row gy-5">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="service-box">
+              <h4>Services List</h4>
+              <div class="services-list">
+                <a href="{% url 'jobseeker:jobseeker_service_detail_1' %}"><i class="bi bi-arrow-right-circle"></i><span>Personalized Job Recommendations</span></a>
+                <a href="{% url 'jobseeker:jobseeker_service_detail_2' %}" class="active"><i class="bi bi-arrow-right-circle"></i><span>Resume Parsing & Enhancement</span></a>
+                <a href="{% url 'jobseeker:jobseeker_service_detail_3' %}"><i class="bi bi-arrow-right-circle"></i><span>Verified Employer Listings</span></a>
+                <a href="{% url 'jobseeker:jobseeker_service_detail_4' %}"><i class="bi bi-arrow-right-circle"></i><span>Job Market Analytics & Trends</span></a>
+{#                <a href="{% url 'jobseeker:jobseeker_service_detail_5' %}"><i class="bi bi-arrow-right-circle"></i><span>Event & Job Fair Management</span></a>#}
+{#                <a href="{% url 'jobseeker:jobseeker_service_detail_6' %}"><i class="bi bi-arrow-right-circle"></i><span>Labor Market Analytics & Insights</span></a>#}
+              </div>
+            </div><!-- End Services List -->
+
+{#            <div class="service-box">#}
+{#              <h4>Download Catalog</h4>#}
+{#              <div class="download-catalog">#}
+{#                <a href="#"><i class="bi bi-filetype-pdf"></i><span>Catalog PDF</span></a>#}
+{#                <a href="#"><i class="bi bi-file-earmark-word"></i><span>Catalog DOC</span></a>#}
+{#              </div>#}
+{#            </div><!-- End Services List -->#}
+
+            <div class="help-box d-flex flex-column justify-content-center align-items-center">
+              <i class="bi bi-headset help-icon"></i>
+              <h4>Have a Question?</h4>
+              <p class="d-flex align-items-center mt-2 mb-0"><i class="bi bi-telephone me-2"></i> <span>(02) 8808-2020 loc 107</span></p>
+              <p class="d-flex align-items-center mt-1 mb-0"><i class="bi bi-envelope me-2"></i> <span>peso.sanpedro@gmail.com</span></p>
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
+            <img src="{% static 'jobseeker/assets/img/services.jpg' %}" alt="" class="img-fluid services-img">
+            <h3>Resume Parsing & Enhancement</h3>
+            <p>
+              Utilizing OCR (Optical Character Recognition) and NLP (Natural Language Processing), the system scans resumes and extracts key details such as skills, education, work experience, and certifications. This data is then used to auto-fill job application forms, significantly reducing manual entry and streamlining the application process. Additionally, the system ensures accurate parsing of information, allowing job seekers to review and edit their details before submission for a seamless and efficient experience.
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> <span>Saves time by automatically filling out job applications.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Reduces errors from manual data entry.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Streamlines the job application process for a smoother experience.</span></li>
+            </ul>
+            <p>
+              Resume parsing and enhancement significantly improve the job application experience by leveraging advanced technologies like OCR and NLP. By automatically scanning resumes and extracting key details such as skills, education, work experience, and certifications, the system eliminates the need for repetitive manual data entry. This automation not only saves time but also minimizes the risk of errors, ensuring that job seekers submit accurate and well-structured applications. Additionally, by auto-filling application forms with extracted information, candidates can apply to multiple job opportunities more efficiently, increasing their chances of securing interviews.
+            </p>
+            <p>
+              Beyond efficiency, this intelligent system enhances the overall job search process by providing a smoother and more user-friendly experience. Job seekers have the flexibility to review and edit their information before submission, ensuring precision and personalization in their applications. By reducing barriers in the application process, resume parsing technology allows candidates to focus on crafting compelling cover letters and preparing for interviews rather than spending time on tedious data entry. Ultimately, this streamlined approach empowers job seekers to apply with confidence and improves their chances of landing the right job.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+{% endblock %}
