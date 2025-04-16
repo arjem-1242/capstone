@@ -1,5 +1,5 @@
 import imghdr
-import cv2
+
 from PIL import Image, UnidentifiedImageError
 import spacy
 import numpy as np
@@ -74,6 +74,7 @@ nlp = spacy.load("en_core_web_sm")
 
 
 class AccreditationRequestForm(forms.ModelForm):
+
     class Meta:
         model = AccreditationRequest
         fields = ['company', 'company_type', 'comments', 'sec_registration', 'dti_permit', 'business_permit', 'latest_job_posting',
@@ -85,6 +86,7 @@ class AccreditationRequestForm(forms.ModelForm):
 
 
     def clean(self):
+        import cv2
         cleaned_data = super().clean()
         # Handle OCR and NLP processing
         for field in ['sec_registration', 'dti_permit', 'business_permit', 'latest_job_posting',

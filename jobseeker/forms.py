@@ -1,4 +1,4 @@
-import cv2
+
 from PIL import Image, UnidentifiedImageError
 import spacy
 import numpy as np
