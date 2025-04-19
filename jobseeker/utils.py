@@ -1,3 +1,4 @@
+import pymupdf as fitz
 import spacy
 from django.conf import settings
 import pandas as pd
@@ -11,6 +12,11 @@ import os
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
 from rapidfuzz import process as rapid_process
+
+from pathlib import Path
+from docx import Document
+
+
 
 # from pyresparser import ResumeParser
 # from spacy.lang.en import English
@@ -36,19 +42,60 @@ def preprocess_image(image):
 
     return denoised_image
 
-def extract_text_from_resume(file_path):
-    pages = convert_from_path(file_path) if file_path.endswith('.pdf') else [file_path]
-    text = ""
-    for page in pages:
-        if isinstance(page, str):
-            image = cv2.imread(page)
-        else:
-            image = cv2.cvtColor(np.array(page), cv2.COLOR_RGB2BGR)
 
-        # Preprocess image before OCR
-        preprocessed_image = preprocess_image(image)
-        text += pytesseract.image_to_string(preprocessed_image)
-    return text
+def extract_text_from_resume(file_path):
+    path = Path(file_path)
+    ext = path.suffix.lower()
+
+    if ext == '.docx':
+        doc = Document(file_path)
+        return '\n'.join([p.text for p in doc.paragraphs])
+
+    elif ext == '.pdf':
+        text = ""
+        with fitz.open(file_path) as doc:
+            for page in doc:
+                text += page.get_text()
+
+            if text.strip():  # If text was extracted, return it
+                return text
+
+            # Fallback to OCR (scanned PDF)
+            text = ""
+            for page in doc:
+                pix = page.get_pixmap()
+                img = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.height, pix.width, pix.n)
+                if pix.n == 4:
+                    img = cv2.cvtColor(img, cv2.COLOR_RGBA2BGR)
+                else:
+                    img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+
+                preprocessed = preprocess_image(img)
+                text += pytesseract.image_to_string(preprocessed)
+
+        return text
+
+    elif ext in ['.jpg', '.jpeg', '.png', '.tiff', '.bmp']:
+        image = cv2.imread(str(file_path))
+        preprocessed = preprocess_image(image)
+        return pytesseract.image_to_string(preprocessed)
+
+    else:
+        raise ValueError(f"Unsupported file format: {ext}")
+
+# def extract_text_from_resume(file_path):
+#     pages = convert_from_path(file_path) if file_path.endswith('.pdf') else [file_path]
+#     text = ""
+#     for page in pages:
+#         if isinstance(page, str):
+#             image = cv2.imread(page)
+#         else:
+#             image = cv2.cvtColor(np.array(page), cv2.COLOR_RGB2BGR)
+#
+#         # Preprocess image before OCR
+#         preprocessed_image = preprocess_image(image)
+#         text += pytesseract.image_to_string(preprocessed_image)
+#     return text
 
 # def extract_data_with_pyresparser(file_path):
 #     try:
