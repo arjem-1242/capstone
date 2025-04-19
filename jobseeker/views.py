@@ -273,6 +273,7 @@ def view_matched_jobs(request):
                 job_posting_id = job_posting.id  # ✅ Access the job posting ID
 
                 job_skills = job.get('skills', '').split(',') if job.get('skills') else []
+                job['skills_list'] = job_skills
                 matched_skills = list(set(resume_data.get('skills', [])) & set(job_skills))
 
 
@@ -280,6 +281,7 @@ def view_matched_jobs(request):
                                                                                                          '') else ""
 
                 job_requirements = job.get('requirements', '').split(',') if job.get('requirements') else []
+                job['requirements_list'] = job_requirements
                 matched_education = list(set(resume_data.get('requirements', [])) & set(job_requirements))
 
                 matched_position = job.get('position', '')

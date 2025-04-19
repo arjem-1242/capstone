@@ -47,9 +47,9 @@
                         <tr>
                             <td>{{ job.position }}</td>
                             <td>{{ job.job_description }}</td>
-                            <td>{{ job.skills.split|join:", " }}</td>
+                            <td>{{ job.skills_list|join:", " }}</td>
                             <td>{{ job.location }}</td>
-                            <td>{{ job.requirements.split|join:"," }}</td>
+                            <td>{{ job.requirements_list|join:", " }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
