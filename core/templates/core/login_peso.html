@@ -96,6 +96,84 @@
 
       }
 
+      .custom-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(20, 20, 20, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .modal-content {
+      background: #fff;
+      width: 95%;
+      max-width: 900px;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-content h2 {
+      text-align: center;
+      text-decoration-thickness: 10px;
+      color: #198654;
+    }
+    
+    .modal-content h4 {
+    text-decoration-line: underline;
+    }
+
+    .update-date {
+      color: #198654;
+      font-size: 0.9rem;
+      margin-top: -10px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .terms-scroll {
+      overflow-y: auto;
+      max-height: 50vh;
+      padding-right: 10px;
+      font-size: 0.85rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .modal-actions {
+      display: flex;
+        flex: 1;
+      justify-content: space-between;
+      margin-top: 0 5px;
+    }
+
+    .btn-decline, .btn-accept {
+      padding: 10px 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-decline {
+      background-color: white;
+      color: #ff4d4d;
+      border: 1px solid #ff4d4d;
+    }
+
+    .btn-accept {
+      background-color: #198654;
+      color: white;
+    }
+
     </style>
 
 
@@ -162,6 +240,17 @@
                             <button class="btn btn-success w-100" type="submit">Login</button>
                               <p class="small mb-0"><a href="{% url 'forgot_password' %}">Forgot password?</a></p>
                           </div>
+
+                          <div class="col-12">
+                            <div class="form-check">
+                              <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
+                                <label class="form-check-label" for="acceptTerms">
+                                    I agree and accept the <a href="#" id="openModalLink">terms and conditions</a>
+                                </label>
+                              <div class="invalid-feedback">You must agree before submitting.</div>
+                            </div>
+                          </div>
+
                       </form>
     
                     </div>
@@ -193,5 +282,67 @@
 
         showSlides();
     </script>
+<!-- Terms & Conditions Modal -->
+<div id="termsModal" class="custom-modal">
+  <div class="modal-content">
+    <h2>Terms and Conditions</h2>
+    <p class="update-date">Last updated: April 04, 2025</p>
+    <div class="terms-scroll">
+      <p>Please read these Terms and Conditions carefully before using the PESOSync platform. By using the PESOSync platform as a PESO staff member, you agree to comply with the following Terms and Conditions. These terms govern your access to the platform and its functionalities. </p>
+
+      <h4>Registration and Account</h4>
+      <p>PESO staff members must use their designated login credentials provided by the PESO. Your account must be kept confidential and used for official PESO purposes only.</p>
+
+      <h4>Accreditation Requests and Management</h4>
+      <p>You are responsible for reviewing and processing employer accreditation requests through the platform. Accreditation decisions must comply with PESO policies and regulations.</p>
+
+      <h4>Job Matching and Data Management</h4>
+      <p>You may assist with job matching for jobseekers and ensure the proper management of their applications. You must keep jobseekers’ and employers’ data confidential and secure.</p>
+
+      <h4>Use of Data</h4>
+      <p>By accessing the PESOSync platform, you agree to handle personal and sensitive data in accordance with relevant data protection laws. You must ensure the accuracy and completeness of data entered into the system.</p>
+
+      <h4>Code of Conduct</h4>
+      <p>PESO staff must treat all users with respect and professionalism. Any violations of laws or unethical conduct will be subject to disciplinary action.</p>
+
+      <h4>Privacy Policy</h4>
+      <p>Your privacy is important to us. Please refer to our Privacy Policy to understand how we collect, use, and store your personal data.</p>
+
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-decline" onclick="disagree()">Decline</button>
+      <button class="btn-accept" onclick="agree()">Accept the Terms</button>
+    </div>
+  </div>
+</div>
+
+       <script>
+  const modal = document.getElementById("termsModal");
+  const termsCheckbox = document.getElementById("acceptTerms");
+  const termsLink = document.getElementById("openModalLink");
+
+  termsLink.addEventListener("click", function(event) {
+    event.preventDefault();
+    modal.style.display = "flex";
+  });
+
+  function agree() {
+    termsCheckbox.checked = true;
+    modal.style.display = "none";
+  }
+
+  function disagree() {
+    termsCheckbox.checked = false;
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
 </body>
 </html>
