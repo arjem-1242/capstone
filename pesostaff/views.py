@@ -1,5 +1,6 @@
 from django.db.models import Count
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.decorators.cache import never_cache
 from django.views.decorators.http import require_POST
 from employer.models import AccreditationRequest, JobPosting, CompanyProfile
 from jobseeker.models import ResumeDocument, JobseekerProfile
@@ -17,7 +18,9 @@ from core.models import *
 
 logger = logging.getLogger(__name__)
 @login_required
+@never_cache
 def staff_dashboard(request):
+
     # Job Locations
     location_data = (
         JobPosting.objects.values('location')

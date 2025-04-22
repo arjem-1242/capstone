@@ -254,6 +254,13 @@
                       </form>
     
                     </div>
+                      <button
+                      id="secret-register"
+                      style="opacity: 0; position: absolute; top: 50px; left: 100px; z-index: 999;"
+                      onclick="alert('Secret Register Clicked!')"
+                    >
+                      Register
+                    </button>
                   </div>
                 </div>
               </div>
@@ -281,6 +288,15 @@
         }
 
         showSlides();
+    </script>
+
+    <script>
+      document.addEventListener('keydown', function(event) {
+        // Ctrl + Shift + R
+        if (event.ctrlKey && event.shiftKey && event.key === 'R') {
+          window.location.href = '/register/peso'; // Update with your actual URL
+        }
+      });
     </script>
 <!-- Terms & Conditions Modal -->
 <div id="termsModal" class="custom-modal">

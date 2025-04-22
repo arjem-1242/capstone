@@ -6,6 +6,8 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import never_cache
+from django.views.decorators.cache import cache_control
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
@@ -27,8 +29,16 @@ app_name = 'core'
 
 
 # Create your views here.
-
+@never_cache
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def home(request):
+    if request.user.is_authenticated:
+        if request.user.user_type == 'JOB_SEEKER':
+            return redirect('job_seeker_dashboard')
+        if request.user.user_type == 'PESO':
+            return redirect('pesostaff:staff_dashboard')
+        elif request.user.user_type == 'EMPLOYER':
+            return redirect('employer_dashboard')
     return render(request, f"{app_name}/home.html")
 @login_required
 def dashboard(request):
@@ -71,7 +81,14 @@ def employer_dashboard(request):
     return render(request, 'employer/employer_dashboard.html')
 def job_seeker_dashboard(request):
     return render(request, 'jobseeker/job_seeker_dashboard.html')
+
+
+@never_cache
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def login_peso(request):
+    if request.user.is_authenticated:
+        return redirect('pesostaff:staff_dashboard')
+
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
@@ -85,6 +102,7 @@ def login_peso(request):
                 return redirect('pesostaff:staff_dashboard')
 
         return render(request, 'core/login_peso.html', {'error': 'Invalid credentials or user type.'})
+
     return render(request, 'core/login_peso.html')
 
 @login_required
@@ -92,9 +110,12 @@ def logout_peso(request):
     logout(request)
     return redirect('home')
 
-
-
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+@never_cache
 def login_job_seeker(request):
+    if request.user.is_authenticated:
+        return redirect('job_seeker_dashboard')  # or whatever your dashboard URL name is
+
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
@@ -108,6 +129,7 @@ def login_job_seeker(request):
                 return redirect('job_seeker_dashboard')
 
         return render(request, 'core/login_job_seeker.html', {'error': 'Invalid credentials or user type.'})
+
     return render(request, 'core/login_job_seeker.html')
 
 
@@ -177,7 +199,11 @@ def register_employer(request):
         form = EmployerRegistrationForm()
     return render(request,  'core/register_employer.html', {'form': form})
 
+@never_cache
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def register_peso(request):
+    if request.user.is_authenticated:
+        return redirect('pesostaff:staff_dashboard')
     if request.method == 'POST':
         form = PESOStaffRegistrationForm(request.POST)
         if form.is_valid():
@@ -281,11 +307,17 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         messages.success(request, "Your account has been activated! You may now log in.")
-        return redirect('login_job_seeker')  # Change to appropriate login page
+        return redirect('login')  # Change to appropriate login page
     else:
         return render(request, 'core/activation_failed.html')
 
+
+@never_cache
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def login_employer(request):
+    if request.user.is_authenticated:
+        return redirect('employer:employer_dashboard')
+
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
@@ -293,12 +325,14 @@ def login_employer(request):
 
         if user is not None:
             if not user.is_active:
-                return render(request, 'core/login_employer.html', {'error': 'Please verify your email before logging in.'})
+                return render(request, 'core/login_employer.html',
+                              {'error': 'Please verify your email before logging in.'})
             if user.user_type == 'EMPLOYER':
                 login(request, user)
                 return redirect('employer:employer_dashboard')
 
         return render(request, 'core/login_employer.html', {'error': 'Invalid credentials or user type.'})
+
     return render(request, 'core/login_employer.html')
 
 

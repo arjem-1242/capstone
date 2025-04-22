@@ -192,15 +192,17 @@
                             <div class="invalid-feedback">Please confirm your password!</div>
                           </div>
                         
+{#                          <div class="col-12">#}
+{#                            <div class="form-check">#}
+{#                              <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>#}
+{#                                <label class="form-check-label" for="acceptTerms">#}
+{#                                  I agree and accept the <a href="#" id="openModalLink">terms and conditions</a>#}
+{#                                </label>#}
+{#                              <div class="invalid-feedback">You must agree before submitting.</div>#}
+{#                            </div>#}
+{#                          </div>#}
                           <div class="col-12">
-                            <div class="form-check">
-                              <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
-                              <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">terms and conditions</a></label>
-                              <div class="invalid-feedback">You must agree before submitting.</div>
-                            </div>
-                          </div>
-                          <div class="col-12">
-                            <button class="btn btn-success w-100" type="submit" id="registerButton" disabled>Create Account</button>
+                            <button class="btn btn-success w-100" type="submit" id="registerButton">Create Account</button>
                           </div>
                           <div class="col-12">
                             <p class="small mb-0">Already have an account? <a href="{% url 'login_peso' %}">Log in</a></p>
@@ -299,6 +301,68 @@
     
             showSlides();
         </script>
+        
+        <!-- Terms & Conditions Modal -->
+<div id="termsModal" class="custom-modal">
+  <div class="modal-content">
+    <h2>Terms and Conditions</h2>
+    <p class="update-date">Last updated: April 04, 2025</p>
+    <div class="terms-scroll">
+      <p>Please read these Terms and Conditions carefully before using the PESOSync platform. By using the PESOSync platform as a PESO staff member, you agree to comply with the following Terms and Conditions. These terms govern your access to the platform and its functionalities. </p>
+
+      <h4>Registration and Account</h4>
+      <p>PESO staff members must use their designated login credentials provided by the PESO. Your account must be kept confidential and used for official PESO purposes only.</p>
+
+      <h4>Accreditation Requests and Management</h4>
+      <p>You are responsible for reviewing and processing employer accreditation requests through the platform. Accreditation decisions must comply with PESO policies and regulations.</p>
+
+      <h4>Job Matching and Data Management</h4>
+      <p>You may assist with job matching for jobseekers and ensure the proper management of their applications. You must keep jobseekers’ and employers’ data confidential and secure.</p>
+
+      <h4>Use of Data</h4>
+      <p>By accessing the PESOSync platform, you agree to handle personal and sensitive data in accordance with relevant data protection laws. You must ensure the accuracy and completeness of data entered into the system.</p>
+
+      <h4>Code of Conduct</h4>
+      <p>PESO staff must treat all users with respect and professionalism. Any violations of laws or unethical conduct will be subject to disciplinary action.</p>
+
+      <h4>Privacy Policy</h4>
+      <p>Your privacy is important to us. Please refer to our Privacy Policy to understand how we collect, use, and store your personal data.</p>
+
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-decline" onclick="disagree()">Decline</button>
+      <button class="btn-accept" onclick="agree()">Accept the Terms</button>
+    </div>
+  </div>
+</div>
+
+       <script>
+  const modal = document.getElementById("termsModal");
+  const termsCheckbox = document.getElementById("acceptTerms");
+  const termsLink = document.getElementById("openModalLink");
+
+  termsLink.addEventListener("click", function(event) {
+    event.preventDefault();
+    modal.style.display = "flex";
+  });
+
+  function agree() {
+    termsCheckbox.checked = true;
+    modal.style.display = "none";
+  }
+
+  function disagree() {
+    termsCheckbox.checked = false;
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
     
     </main>
     
