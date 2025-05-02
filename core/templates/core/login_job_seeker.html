@@ -133,6 +133,13 @@
                     <div class="card-body">
     
                       <div class="pt-4 pb-2">
+                          
+                        {% if error %}
+                          <div style="background-color: #f8d7da; color: #842029; font-size: 0.9rem; padding: 10px 15px; border-radius: 4px; text-align: center; margin-bottom: 15px;">
+                            {{ error }}
+                          </div>
+                        {% endif %}
+                      
                         <div class="d-flex justify-content-center py-4">
                             <a href="{% url 'login_job_seeker' %}" class="logo d-flex align-items-center w-auto">
                               <!-- <img src="{% static 'core/img/logo.png' %}" alt=""> -->
@@ -160,14 +167,20 @@
                             <div class="invalid-feedback">Please enter your password!</div>
                           </div>
                           
+
+                          
                           <div class="col-12">
                             <button class="btn btn-success w-100" type="submit">Login</button>
                           </div>
+                          
+
                           <p class="small mb-0"><a href="{% url 'forgot_password' %}">Forgot password?</a></p>
 
                         <div class="col-12">
                           <p class="small mb-0">Don't have account? <a href="{% url 'register_job_seeker' %}">Create an account</a></p>
                         </div>
+                          
+
                       </form>
     
                     </div>
@@ -180,7 +193,7 @@
 
     </div>
     
-    <script src="{% static 'core/js/script.js' %}"></script>
+    <script src="{% static 'core/js/main.js' %}"></script>
 
     <script>
         let slideIndex = 0;

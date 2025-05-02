@@ -133,6 +133,13 @@
                     <div class="card-body">
     
                       <div class="pt-4 pb-2">
+                          
+                          {% if error %}
+                          <div style="background-color: #f8d7da; color: #842029; font-size: 0.9rem; padding: 10px 15px; border-radius: 4px; text-align: center; margin-bottom: 15px;">
+                            {{ error }}
+                          </div>
+                          {% endif %}
+                          
                         <div class="d-flex justify-content-center py-4">
                             <a href="{% url 'login_employer' %}" class="logo d-flex align-items-center w-auto">
                               <!-- <img src="{% static 'pesosync/img/logo.png' %}" alt=""> -->
